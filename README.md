@@ -1,25 +1,105 @@
 # Project1-AzureServices
-This repository contains the implementation and documentation of a cloud-based data engineering architecture built using Microsoft Azure services. The project demonstrates end-to-end data ingestion, transformation, storage, and visualization using industry-standard Azure tools.
 
-The objective of this project is to design a scalable, secure, and production-oriented data pipeline architecture integrating Azure Data Factory, Azure Data Lake Gen2, Azure Databricks, Azure SQL Database, and Power BI.
+## Overview
 
+This project demonstrates an end-to-end cloud data engineering architecture built using Microsoft Azure services. It implements a scalable and secure data pipeline that ingests raw data, transforms it through layered processing, and delivers business insights using dashboards.
 
-# Resource Group
-Definition
-A Resource Group in Azure is a logical container used to organize and manage related cloud resources within a project. It groups services such as Azure Data Factory, ADLS Gen2, Databricks, Azure SQL Database, and Key Vault under a single management boundary.
-It enables centralized deployment, access control, monitoring, and lifecycle management of all included resources.
+The architecture follows the Medallion (Bronze–Silver–Gold) pattern to ensure structured data refinement and maintainability.
 
-Why Resource Group?
-Azure provides multiple ways to organize resources, but each serves a different purpose:
-Subscription → Used for billing and high-level isolation. Too broad for project-level structuring.
-Management Group → Designed for governance across multiple subscriptions. Suitable for enterprise policy control, not individual projects.
-Tags → Useful for categorization and cost labeling, but do not provide lifecycle or access management.
+---
 
-Resource Groups are preferred because they:
-Provide project-level isolation
-Enable Role-Based Access Control (RBAC) at group level
-Allow grouped deployment using ARM/Bicep templates
-Support centralized cost tracking
-Enable bulk deletion of project resources
+## Architecture Flow
 
-In Project1-AzureServices, all Azure components are placed within a single Resource Group to maintain clean architecture, controlled access, and simplified resource management.
+```
+Source Systems
+      ↓
+Azure Data Factory
+      ↓
+ADLS Gen2 (Bronze Layer)
+      ↓
+Azure Databricks
+      ↓
+ADLS Gen2 (Silver → Gold Layers)
+      ↓
+Azure SQL Database
+      ↓
+Power BI Dashboards
+```
+
+---
+
+## Core Components
+
+### Resource Group
+Logical container that manages all Azure resources within the project.  
+Provides centralized deployment, access control, and cost monitoring.
+
+---
+
+### Azure Data Factory (ADF)
+Cloud-based data orchestration service used to:
+- Ingest data from source systems  
+- Automate and schedule pipelines  
+- Monitor execution and handle failures  
+
+Acts as the control layer of the architecture.
+
+---
+
+### Azure Data Lake Storage Gen2 (ADLS Gen2)
+Scalable storage optimized for analytics workloads.
+
+Structured using Medallion architecture:
+- **Bronze** → Raw ingested data  
+- **Silver** → Cleaned and transformed data  
+- **Gold** → Business-ready datasets  
+
+---
+
+### Azure Databricks
+Distributed data processing platform built on Apache Spark.
+
+Used to:
+- Perform large-scale transformations  
+- Clean and validate datasets  
+- Generate curated data for reporting  
+
+---
+
+### Azure SQL Database
+Relational database storing Gold-layer data optimized for reporting and analytics queries.
+
+---
+
+### Power BI Integration
+Visualization layer connected to Azure SQL Database.
+
+Used to:
+- Build dashboards and KPIs  
+- Enable interactive reporting  
+- Provide business insights  
+
+---
+
+### Microsoft Entra ID
+Identity and access management service used for:
+- Role-Based Access Control (RBAC)  
+- Secure authentication  
+- Managed identities across services  
+
+---
+
+## Design Principles
+
+- Layered data refinement (Bronze → Silver → Gold)  
+- Centralized orchestration  
+- Distributed data transformation  
+- Secure role-based access control  
+- Decoupled storage and compute  
+- Automated and monitored workflows  
+
+---
+
+## Outcome
+
+The project delivers a structured, automated, and scalable Azure data platform suitable for modern analytics workloads.
