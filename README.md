@@ -22,7 +22,7 @@ Azure Databricks
       ↓
 ADLS Gen2 (Silver → Gold Layers)
       ↓
-Azure SQL Database
+Azure Synapse Analytics
       ↓
 Power BI Dashboards
 ```
