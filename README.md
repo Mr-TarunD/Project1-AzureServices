@@ -90,17 +90,19 @@ Databricks provides scalable distributed computation, multi-language support (Py
 
 ---
 
-## Azure SQL Database
+## Azure Synapse Analytics
 
 ### Definition
-Azure SQL Database is a fully managed relational database service used for structured storage and optimized reporting queries.
+Azure Synapse Analytics is a unified analytics platform that combines big data processing, data warehousing, and data integration into a single service.
 
-### Why Azure SQL Database?
-- **ADLS Gen2** → Raw and semi-structured storage, not optimized for relational queries.
-- **On-Prem SQL Server** → Requires infrastructure management.
-- **NoSQL Databases** → Not ideal for structured reporting workloads.
+It allows ingestion, transformation, and analysis of large datasets using SQL pools, Spark pools, and Synapse pipelines.
 
-Azure SQL provides structured schema enforcement, optimized query performance, and seamless integration with Power BI.
+### Why Azure Synapse Analytics?
+- **Azure Data Factory** → Used for orchestration only.
+- **Azure Databricks** → Excellent for Spark processing but lacks built-in data warehousing.
+- **Azure SQL Database** → Limited to relational workloads.
+
+Synapse provides a unified platform where pipelines, Spark processing, and SQL analytics work together, reducing architectural complexity.
 
 ---
 
