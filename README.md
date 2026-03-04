@@ -6,8 +6,7 @@ This project demonstrates an end-to-end cloud data engineering architecture buil
 
 The architecture follows the Medallion (Bronze–Silver–Gold) pattern to ensure structured data refinement and maintainability.
 
-<img width="1577" height="913" alt="Image" src="https://github.com/user-attachments/assets/14e9772d-c5f1-4457-b15d-a55e95c4e15a" />
----
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/42be93de-3248-4145-a2f5-b8ab78575a03" />---
 
 ## Architecture Flow
 
